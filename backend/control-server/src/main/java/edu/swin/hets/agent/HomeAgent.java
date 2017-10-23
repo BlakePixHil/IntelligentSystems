@@ -317,7 +317,6 @@ public class HomeAgent extends BaseAgent
 			Optional<INegotiationStrategy> opt = _currentNegotiations.stream().filter(
 				(agg) -> agg.getOpponentName().equals(msg.getSender().getName())).findAny();
 			if (opt.isPresent()) {
-				LogError("opt PRESENT" + msg.getSender());
 				INegotiationStrategy negotiation = opt.get();
 				PowerSaleProposal prop = getPowerSalePorposal(msg);
 				negotiation.addNewProposal(prop, false);
@@ -346,7 +345,7 @@ public class HomeAgent extends BaseAgent
 					send(acceptMsg);
 				}
 			}
-			else{LogError("opt is not present : " + msg.getSender().getLocalName());}
+			else{}
 		}
 	}
 
